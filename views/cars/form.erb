@@ -1,0 +1,21 @@
+<form action="/<%= @car.id %>" method="post">
+  <div>
+    <label>Make</label>
+    <input type="text" name="Make" value="<%=@car.make %>">
+  </div>
+
+  <div>
+    <label> Model </label>
+    <textarea name="Model" rows="8" cols="10"></textarea>
+  </div>
+
+  <div>
+    <input type="submit" name="Save Post">
+  </div>
+
+<!-- If it has id then it is updating? -->
+  <% if (@car.id) %>
+  <input type="hidden" name="_method" value="PUT">
+
+  <% end %>
+</form>
