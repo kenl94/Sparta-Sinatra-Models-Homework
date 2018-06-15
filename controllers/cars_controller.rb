@@ -10,6 +10,8 @@ class CarsController < Sinatra::Base
   end
 
   get '/cars' do
+    
+
 
     @cars = Car.all
 

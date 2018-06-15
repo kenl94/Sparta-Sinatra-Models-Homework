@@ -16,7 +16,7 @@ class Car
     # connection executing the sql variable?
     results = connection.exec(sql)
     # Hydrate?
-    car = results.map do |tuple|
+    cars = results.map do |tuple|
       self.hydrate tuple
     end
 
@@ -28,9 +28,9 @@ class Car
     # select from table where id is = to the id searched??? Limits to only 1 ID?
     sql = "SELECT * FROM MOCK_DATA WHERE id=#{ id } LIMIT 1"
 
-    car = self.hydrate cars[0]
+    cars = self.hydrate cars[0]
 
-    car
+    cars
 
   end
 
@@ -61,15 +61,15 @@ class Car
 
   def self.hydrate car_data
     # Makes a new instance???
-    car = Car.new
+    cars = Car.new
     # car.id are the variables and it is equal to the data from the tables and the car_data is the arguments?
 
-    car.car_id = car_data['car_id']
-    car.car_make = car_data['car_make']
-    car.car_model = car_data['car_model']
-    car.car_year = car_data['car_year']
+    cars.id = car_data['car_id']
+    cars.make = car_data['car_make']
+    cars.model = car_data['car_model']
+    cars.year = car_data['car_year']
 
-    car
+    cars
 
   end
 
