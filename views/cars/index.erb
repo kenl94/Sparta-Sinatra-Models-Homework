@@ -2,7 +2,7 @@
 
 <% @cars.each do |car| %>
 <div >
-  <h2> <a href="/cars<%= car.id %>"><%=car.make %></a></h2>
-  <p><%=car.model%></p>
-  <p><%=car.year%></p>
+  <h2> <a href="/<%= car.id %>"><%=car.car_make %></a></h2>
+  <hr>
 </div>
+<% end %>

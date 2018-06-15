@@ -1,7 +1,7 @@
-DROP TABLE IF EXISTS cars;
+DROP TABLE IF EXISTS MOCK_DATA;
 
   create table MOCK_DATA (
-    car_id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
   	car_make VARCHAR(50),
   	car_model VARCHAR(50),
   	car_year VARCHAR(50)

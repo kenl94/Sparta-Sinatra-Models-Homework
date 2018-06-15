@@ -1,6 +1,5 @@
 class CarsController < Sinatra::Base
 
-
   set :root, File.join(File.dirname(__FILE__), "..")
 
   set :views, Proc.new {File.join(root,"views") }
@@ -9,44 +8,35 @@ class CarsController < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  get '/cars' do
-    
-
-
+  get '/' do
+    @title = "Cars Index"
     @cars = Car.all
-
     erb :'cars/index'
-
   end
 
-  get '/cars/new' do
+  get '/new' do
     "new"
-
   end
 
-  get '/cars/:id' do
+  get '/:id' do
     id = params[:id].to_i
-
     @car = Car.find id
-
     erb :'cars/show'
-
-
   end
 
-  post '/cars' do
+  post '/' do
     "create"
   end
 
-  get '/cars/:id/edit' do
+  get '/:id/edit' do
     "edit"
   end
 
-  put '/cars:id' do
+  put '/:id' do
     "update"
   end
 
-  delete '/cars/:id' do
+  delete '/:id' do
     "destroy"
   end
 

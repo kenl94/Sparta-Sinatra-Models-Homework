@@ -30,7 +30,7 @@ class Car
 
     cars = connection.exec(sql)
 
-    car = self.hydrate MOCK_DATA[0]
+    car = self.hydrate cars[0]
 
     car
 
@@ -41,7 +41,7 @@ class Car
     connection = Car.open_connection
     # If no id then save, if there is a id then update ?
     if (!self.id)
-      sql = "INSERT INTO MOCK_DATA (car_make, car_model, car_year) VALUES ('#{self.car__make}', '#{self.car_model}','#{self.car_year}' )"
+      sql = "INSERT INTO MOCK_DATA (car_make, car_model, car_year) VALUES ('#{self.car_make}', '#{self.car_model}','#{self.car_year}' )"
     else
       sql = "UPDATE MOCK_DATA SET
       car_make='#{self.car_make}',
@@ -63,15 +63,15 @@ class Car
 
   def self.hydrate car_data
     # Makes a new instance???
-    cars = Car.new
+    car = Car.new
     # car.id are the variables and it is equal to the data from the tables and the car_data is the arguments?
 
-    cars.id = car_data['car_id']
-    cars.make = car_data['car_make']
-    cars.model = car_data['car_model']
-    cars.year = car_data['car_year']
+    car.id = car_data['id']
+    car.car_make = car_data['car_make']
+    car.car_model = car_data['car_model']
+    car.car_year = car_data['car_year']
 
-    cars
+    car
 
   end
 
