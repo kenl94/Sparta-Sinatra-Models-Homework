@@ -28,9 +28,11 @@ class Car
     # select from table where id is = to the id searched??? Limits to only 1 ID?
     sql = "SELECT * FROM MOCK_DATA WHERE id=#{ id } LIMIT 1"
 
-    cars = self.hydrate cars[0]
+    cars = connection.exec(sql)
 
-    cars
+    car = self.hydrate MOCK_DATA[0]
+
+    car
 
   end
 
